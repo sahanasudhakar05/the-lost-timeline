@@ -1,0 +1,5 @@
+# Supabase Edge Function configuration
+# This is a public participant submission endpoint. The function validates the request
+# and writes through a server-side secret key. Never put that secret in index.html.
+[functions.submit-round2]
+verify_jwt = false

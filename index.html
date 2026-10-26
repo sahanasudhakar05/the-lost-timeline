@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Lost Timeline | Round 2</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+:root{--bg:#080a0d;--panel:#11151a;--panel2:#171c22;--line:#34302a;--cyan:#67e8f9;--gold:#c8a96b;--parchment:#e8ddc5;--text:#f3efe7;--muted:#a6a39b;--green:#8de0b2;--red:#ff8793;--shadow:0 24px 70px #0008}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;color:var(--text);font:15px/1.65 'DM Sans',system-ui,sans-serif;background:radial-gradient(ellipse at 50% -10%,#1b2b3a 0,transparent 45%),linear-gradient(#090b0e,#080a0d 70%);position:relative;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.14;background-image:linear-gradient(#8ca0b01c 1px,transparent 1px),linear-gradient(90deg,#8ca0b01c 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}button,input,select{font:inherit}button{cursor:pointer;border:1px solid #514938;border-radius:8px;padding:12px 17px;background:#191c20;color:var(--text);font-weight:700;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}button:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px #0005}button.primary{background:linear-gradient(135deg,#b89a60,#80683d);color:#10100e;border:1px solid #d2b779;box-shadow:0 6px 24px #c8a96b20}button.primary:hover{background:linear-gradient(135deg,#d3b878,#a98b52);box-shadow:0 8px 28px #c8a96b30}button:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}.wrap{width:min(1160px,93%);margin:auto;padding:24px 0 48px;position:relative}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #c8a96b38;padding-bottom:18px}.brand{letter-spacing:.2em;font:500 .72rem 'DM Mono',monospace;color:var(--gold)}.status{font:500 .72rem 'DM Mono',monospace;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);padding:7px 11px;border-radius:5px;background:#0e1115}.hero{padding:42px 0 24px;animation:fadeUp .55s ease both}.eyebrow{color:var(--gold);letter-spacing:.17em;text-transform:uppercase;font:500 .7rem 'DM Mono',monospace}h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:600}h1{font-size:clamp(2.7rem,7vw,5.6rem);line-height:.99;letter-spacing:-.045em;margin:16px 0 20px}h2{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.15;margin:6px 0 12px}h3{font-size:1.35rem;margin:4px 0 8px}p{color:#c8c4ba}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:18px}.panel{position:relative;background:linear-gradient(145deg,#15191ef5,#0e1115f7);border:1px solid #51493880;border-radius:12px;padding:clamp(18px,3vw,30px);box-shadow:var(--shadow);overflow:hidden}.panel:before{content:"";position:absolute;left:0;top:0;width:64px;height:1px;background:var(--gold);opacity:.8}.field{display:grid;gap:7px;margin:16px 0}.field label{font-size:.85rem;color:var(--parchment)}.field input,.field select{width:100%;padding:13px 14px;border-radius:7px;background:#090c10;border:1px solid #3a3d40;color:var(--text)}.field input:focus,.field select:focus{outline:2px solid #67e8f955;border-color:var(--cyan)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.pill{display:inline-block;padding:5px 10px;border:1px solid #514938;border-radius:4px;color:var(--parchment);font:500 .72rem 'DM Mono',monospace}.bar{height:4px;background:#282a2b;border-radius:10px;overflow:hidden;margin:16px 0 24px}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--cyan));width:0;transition:width .5s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 12px #67e8f955}.topline{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:24px}.motif{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.95fr);gap:22px;align-items:start}.graph{background:#070c12;border:1px solid #3d4b51;border-radius:8px;width:100%;aspect-ratio:1/1;max-height:490px;box-shadow:inset 0 0 30px #0008}.options{display:grid;gap:9px;margin:12px 0}.choice{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid #2d4260;border-radius:12px;background:#0b1528;cursor:pointer}.choice:has(input:checked){border-color:var(--cyan);background:#112b40}.choice input{margin-top:5px;accent-color:var(--cyan)}.equations{display:grid;gap:8px;margin-top:14px}.eq{display:flex;gap:10px;align-items:flex-start;background:linear-gradient(100deg,#11171c,#0d1115);border:1px solid #373a3a;padding:12px;border-radius:7px;cursor:pointer;transition:border-color .18s,background .18s,transform .18s;animation:fadeUp .28s ease both}.eq:hover{border-color:#8c784f;transform:translateX(2px)}.eq:has(input:checked){border-color:var(--cyan);background:#102329;box-shadow:inset 3px 0 var(--cyan)}.eq input{margin-top:6px;accent-color:var(--cyan);flex:0 0 auto}.eq code{font:400 .84rem/1.6 'DM Mono',monospace;overflow-wrap:anywhere;color:#e5e0d5}.notice{padding:13px 15px;border-radius:7px;background:#10232a;border:1px solid #2b6670;color:#d1f8ff;margin-top:13px}.error{background:#321722;border-color:#773343;color:#ffd9df}.success{background:#10271f;border-color:#39785d;color:#d0ffe5}.hidden{display:none!important}.story{border-left:2px solid var(--gold);padding:10px 0 10px 15px;color:#e5d7ba;margin:18px 0;background:linear-gradient(90deg,#c8a96b0b,transparent)}.footer{font:400 .68rem 'DM Mono',monospace;letter-spacing:.1em;color:#78776f;text-align:center;margin-top:30px;padding-top:18px;border-top:1px solid #34302a}.small{font-size:.86rem}.summaryrow{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #34302a;color:var(--muted)}.summaryrow b{color:var(--parchment);text-align:right}.timer-chip{border-color:#5d5138;color:var(--gold);padding:9px 13px;font-size:.78rem}.lock-icon{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid #8d7448;border-radius:50%;color:var(--gold);font-size:1.05rem;margin-bottom:14px}.finish-title{color:var(--gold)}.section-tag{display:flex;align-items:center;gap:10px}.section-tag:after{content:"";height:1px;flex:1;background:#51493870}.actions button{min-height:44px}@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes glow{0%,100%{box-shadow:0 0 0 #67e8f900}50%{box-shadow:0 0 22px #67e8f920}}@media(max-width:760px){.grid,.motif{grid-template-columns:1fr}.hero{padding-top:28px}.panel{border-radius:9px}.top{align-items:flex-start}.graph{max-height:360px}.wrap{width:min(100% - 24px,700px);padding-top:15px}h1{font-size:clamp(2.7rem,14vw,4.4rem)}.topline{padding-top:14px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div><div class="brand">✧ CHRONO DIVISION / FIELD TERMINAL</div><div class="muted small">THE LOST TIMELINE · ROUND 02</div></div><div class="status" id="connectionStatus">LOCAL DEMO MODE</div></header>
+<main>
+<section id="register" class="hero">
+<div class="eyebrow">Temporal anomaly detected · 3026</div><h1>The Architect's<br><span style="color:var(--cyan)">Blueprint</span></h1>
+<p>Four motifs. Four mathematical locks. Recover the missing fragment before the timeline collapses.</p>
+<div class="grid">
+<div class="panel"><h2>Identify your team</h2><p class="small">Enter the same Team ID used in every round. Check the ID format with the event organisers before launch.</p>
+<div class="field"><label for="teamId">Team ID</label><input id="teamId" maxlength="40" placeholder="e.g. TEAM001" autocomplete="off"></div>
+<div class="field"><label for="teamName">Team name</label><input id="teamName" maxlength="80" placeholder="e.g. ChronoCrew" autocomplete="off"></div>
+<div class="actions"><button class="primary" id="begin">Enter mission briefing →</button></div><div id="registerMsg" class="notice hidden"></div></div>
+<aside class="panel"><div class="eyebrow">Mission parameters</div><h3>Recovery protocol</h3><div class="summaryrow"><span>Era</span><b>Medieval / Archive</b></div><div class="summaryrow"><span>Locks</span><b>04 motifs</b></div><div class="summaryrow"><span>Target duration</span><b>12–15 min</b></div><div class="summaryrow"><span>Objective</span><b>Time Fragment #2</b></div><p class="small muted">Inspect each clue, choose the correct equations and restrictions, then reconstruct the motif.</p></aside>
+</div></section>
+<section id="briefing" class="hero hidden"><div class="eyebrow">Mission briefing // encrypted archive</div><h1>The Chronicle<br>of the Lost Architect</h1><div class="panel"><p>Long ago, an architect travelled across the world, studying the geometry hidden in art, monuments and decorative patterns. Before the Chronicle of Time could be completed, its archive shattered into four fragments.</p><p>Each fragment is concealed inside a motif. The equations have been scrambled. Identify the right mathematical tools, recover missing information, reject misleading segments and rebuild the designs.</p><div class="story">Mission Control: “Chrono Explorers, restore all four motifs. The inscriptions may reveal the path to Time Fragment #2.”</div><ul><li>Choose the correct equation family.</li><li>Select the equations that form the motif. Some options are decoys.</li><li>Pay attention to segment restrictions and coordinates.</li><li>Submit each reconstruction to unlock its inscription.</li></ul><p class="muted small">A hint is available for each puzzle. Your elapsed time is recorded; scoring is handled centrally by the organisers.</p><div class="actions"><button class="primary" id="startGame">Start the timer & begin →</button></div></div></section>
+<section id="game" class="hidden">
+<div class="topline"><div><div class="eyebrow" id="puzzleNumber">PUZZLE 01 / 04</div><h2 id="puzzleTitle"></h2></div><div class="status timer-chip">◷ ELAPSED <span id="timer">00:00</span></div></div><div class="bar"><span id="progress"></span></div>
+<div class="panel"><p id="puzzleStory"></p><div class="field"><label id="familyLabel" for="familySelect">Equation family</label><select id="familySelect" style="width:100%;padding:12px;border-radius:10px;background:#091222;color:white;border:1px solid #354764"></select></div>
+<div class="motif"><div><canvas id="graph" class="graph" width="600" height="600" aria-label="Coordinate plane showing selected equations"></canvas><p class="muted small" id="graphCaption">Selected equations are plotted on the coordinate plane.</p></div><div><h3>Equation fragments</h3><p class="muted small">Select the equation fragments that belong to this design. Restrictions matter.</p><div id="equations" class="equations"></div><div id="extraChallenge"></div><div class="actions"><button id="hintBtn">Reveal hint</button><button class="primary" id="submitPuzzle">Submit reconstruction</button></div><div id="feedback" class="notice hidden" aria-live="polite"></div></div></div></div>
+<div class="actions" style="justify-content:space-between"><button id="quitBtn">Exit to registration</button><span class="pill" id="completedCount">0 / 4 locks opened</span></div>
+</section>
+<section id="finish" class="hero hidden"><div class="eyebrow">Temporal signal confirmed // archive restored</div><h1 class="finish-title">Fragment <span style="color:var(--cyan)">#02</span><br>Recovered</h1><div class="panel"><div class="lock-icon">✧</div><p>All four motifs have been reconstructed. The inscriptions align into one message:</p><div class="story" id="finalMessage"></div><div class="notice success">TIME FRAGMENT #2 RECOVERED<br>MEDIEVAL TIMELINE STABILIZED</div><div class="summaryrow"><span>Team</span><b id="finishTeam"></b></div><div class="summaryrow"><span>Completion time</span><b id="finishTime"></b></div><div class="summaryrow"><span>Final score</span><b id="finishScore">0 points</b></div><div class="summaryrow"><span>Submission status</span><b id="saveStatus">Not yet submitted</b></div><p class="small muted">Keep this screen open until you see the submission confirmation.</p><div class="actions"><button class="primary" id="finalSubmit">Submit final results</button></div><div id="finishMsg" class="notice hidden" aria-live="polite"></div></div></section>
+
+</main><div class="footer">CHRONO DIVISION · ROUND R2 · Secure the past. Restore the future.</div>
+</div>
+<script>
+/*
+THE LOST TIMELINE — ROUND 2
+Participant page only. CSV export is intentionally not available here.
+Replace the two Supabase placeholders below with your project ref and publishable key before deployment.
+Never put a Supabase secret/service-role key in this file.
+*/
+const SUPABASE_PROJECT_REF = "xivkyzvuynvpozcpekwv";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_P9vW4YhuwnO28O2gk_N7MQ_IXPUMbm1";
+const SUBMIT_URL = `https://${SUPABASE_PROJECT_REF}.supabase.co/functions/v1/submit-round2-v2`;
+const ROUND_ID = "R2";
+const puzzles=[
+{title:"The Star of Infinity",family:"linear",families:[["circle","Circles"],["linear","Linear equations with restrictions"],["quadratic","Quadratic functions"],["trig","Trigonometric functions"]],story:"The first seal is an eight-pointed star. Its outermost points lie three units from the origin along the coordinate axes. Restore the straight-edged outline by selecting the correct segments.",bounds:[-3.5,3.5,-3.5,3.5],inscription:"All journeys begin with a pattern.",hint:"Every edge is a straight line. Use the slope between consecutive vertices, and make sure each segment stops at the correct endpoint.",extra:{type:"select",label:"Which equation family is most suitable for this outline?",answer:"linear"},eqs:[
+["y = -2x + 3 · 0 ≤ x ≤ 1","line",x=>-2*x+3,0,1,"x",true],["y = -0.5x + 1.5 · 1 ≤ x ≤ 3","line",x=>-.5*x+1.5,1,3,"x",true],["y = 0.5x - 1.5 · 1 ≤ x ≤ 3","line",x=>.5*x-1.5,1,3,"x",true],["y = 2x - 3 · 0 ≤ x ≤ 1","line",x=>2*x-3,0,1,"x",true],["y = -2x - 3 · -1 ≤ x ≤ 0","line",x=>-2*x-3,-1,0,"x",true],["y = -0.5x - 1.5 · -3 ≤ x ≤ -1","line",x=>-.5*x-1.5,-3,-1,"x",true],["y = 0.5x + 1.5 · -3 ≤ x ≤ -1","line",x=>.5*x+1.5,-3,-1,"x",true],["y = 2x + 3 · -1 ≤ x ≤ 0","line",x=>2*x+3,-1,0,"x",true],["y = -x + 3 · 0 ≤ x ≤ 1","line",x=>-x+3,0,1,"x",false],["y = -2x + 3 · 0 ≤ x ≤ 2","line",x=>-2*x+3,0,2,"x",false],["y = 2x - 2 · 0 ≤ x ≤ 1","line",x=>2*x-2,0,1,"x",false]]},
+{title:"The Rose of Time",family:"circle",families:[["line","y = mx + c"],["circle","x² + y² = r²"],["quadratic","y = ax² + bx + c"],["vertical","x = k"]],story:"The cathedral's rose window has lost its tracery. Restore three circular rings and the four axes of symmetry. The outer circle passes through (3, 0).",bounds:[-3.5,3.5,-3.5,3.5],inscription:"Time is measured in cycles.",hint:"A circle centred at the origin follows x² + y² = r². The outer circle passes through (3,0), so its radius is 3.",extra:{type:"text",label:"The outer circle passes through (3, 0). What is its radius?",answer:"3"},eqs:[
+["x² + y² = 9 · radius 3","circle",null,0,0,"",true],["x² + y² = 4 · radius 2","circle",null,0,0,"",true],["x² + y² = 0.25 · radius 0.5","circle",null,0,0,"",true],["y = 0 · -3 ≤ x ≤ 3","line",x=>0,-3,3,"x",true],["x = 0 · -3 ≤ y ≤ 3","vertical",null,-3,3,"y",true],["y = x · -2.1213 ≤ x ≤ 2.1213","line",x=>x,-2.1213,2.1213,"x",true],["y = -x · -2.1213 ≤ x ≤ 2.1213","line",x=>-x,-2.1213,2.1213,"x",true],["x² + y² = 16 · radius 4","circle",null,0,0,"",false],["x² + y² = 2 · incorrect radius","circle",null,0,0,"",false],["y = x · extends beyond outer circle","line",x=>x,-3,3,"x",false]]},
+{title:"The Lotus Medallion",family:"circle-offset",families:[["circle-offset","(x − h)² + (y − k)² = r²"],["line","y = mx + c"],["quadratic","y = ax²"],["vertical","x = k"]],story:"One petal of the lotus survives. Recover the four identical petals using symmetry. Each petal has radius 1.5, and the top petal's centre is (0, 1.5).",bounds:[-3,3,-3,3],inscription:"Separate paths can form a single design.",hint:"All four petals have radius 1.5. Their centres are (0,1.5), (0,-1.5), (1.5,0) and (-1.5,0).",extra:{type:"text",label:"For the top petal x² + (y − k)² = 2.25, the centre is (0, 1.5). Find k.",answer:"1.5"},eqs:[
+["x² + (y − 1.5)² = 2.25 · top petal","circle",null,0,0,"",true],["x² + (y + 1.5)² = 2.25 · bottom petal","circle",null,0,0,"",true],["(x − 1.5)² + y² = 2.25 · right petal","circle",null,0,0,"",true],["(x + 1.5)² + y² = 2.25 · left petal","circle",null,0,0,"",true],["x² + y² = 0.25 · central medallion","circle",null,0,0,"",true],["x² + (y − 2)² = 2.25 · wrong centre","circle",null,0,0,"",false],["(x − 1.5)² + y² = 4 · wrong radius","circle",null,0,0,"",false],["x² + y² = 2.25 · misplaced circle","circle",null,0,0,"",false]]},
+{title:"The Serpent's Path",family:"line",families:[["line","Horizontal and vertical line segments"],["circle","Circles"],["quadratic","Quadratic functions"],["trig","Trigonometric functions"]],story:"The final seal is a stepped path carved into stone. Reconnect the turning points in order without allowing any segment to overshoot its endpoint.",bounds:[-1,9,-1,7],inscription:"The fragments are connected.",hint:"Vertical lines have constant x; horizontal lines have constant y. Each segment must start where the previous one ends.",extra:{type:"text",label:"The vertical segment passes through (4,2) and (4,6). For x = k, find k.",answer:"4"},eqs:[
+["x = 0 · 0 ≤ y ≤ 4","vertical",0,0,4,"y",true],["y = 4 · 0 ≤ x ≤ 2","line",x=>4,0,2,"x",true],["x = 2 · 2 ≤ y ≤ 4","vertical",2,2,4,"y",true],["y = 2 · 2 ≤ x ≤ 4","line",x=>2,2,4,"x",true],["x = 4 · 2 ≤ y ≤ 6","vertical",4,2,6,"y",true],["y = 6 · 4 ≤ x ≤ 6","line",x=>6,4,6,"x",true],["x = 6 · 4 ≤ y ≤ 6","vertical",6,4,6,"y",true],["y = 4 · 6 ≤ x ≤ 8","line",x=>4,6,8,"x",true],["x = 8 · 0 ≤ y ≤ 4","vertical",8,0,4,"y",true],["x = 2 · 0 ≤ y ≤ 4","vertical",2,0,4,"y",false],["y = 4 · 0 ≤ x ≤ 4","line",x=>4,0,4,"x",false],["x = 7 · 0 ≤ y ≤ 4","vertical",7,0,4,"y",false]]}
+];
+let team=null,idx=0,startAt=null,elapsed=0,tick=null,answers=[],hints=0,done=false,submitted=false,puzzleHintUsed=false,finalScore=0;
+const $=id=>document.getElementById(id);
+const isConfigured = SUPABASE_PROJECT_REF !== "PASTE_YOUR_PROJECT_REF_HERE" && SUPABASE_PUBLISHABLE_KEY !== "PASTE_YOUR_PUBLISHABLE_OR_ANON_KEY_HERE";
+$("connectionStatus").textContent = isConfigured ? "ROUND R2 // READY" : "CONFIGURE SUPABASE KEY";
+function show(id){["register","briefing","game","finish"].forEach(x=>$(x).classList.toggle("hidden",x!==id))}
+function seconds(){return Math.floor((Date.now()-startAt)/1000)}
+function fmt(n){return String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0")}
+function norm(s){return String(s??"").trim().toLowerCase().replace(/\s+/g,"")}
+$("begin").onclick=()=>{const id=$("teamId").value.trim(),name=$("teamName").value.trim();if(!id||!name){$("registerMsg").textContent="Enter both a Team ID and Team Name."; $("registerMsg").classList.remove("hidden");$("registerMsg").classList.add("error");return}team={team_id:id,team_name:name};$("registerMsg").classList.add("hidden");show("briefing")};
+$("startGame").onclick=()=>{startAt=Date.now();tick=setInterval(()=>{$("timer").textContent=fmt(seconds())},1000);answers=[];hints=0;finalScore=0;submitted=false;idx=0;show("game");renderPuzzle()};
+$("quitBtn").onclick=()=>{if(confirm("Exit this mission? Unsaved progress will be lost.")){clearInterval(tick);show("register")}};
+function renderPuzzle(){
+ const p=puzzles[idx];
+ $("puzzleNumber").textContent=`PUZZLE 0${idx+1} / 04`;
+ $("puzzleTitle").textContent=p.title;
+ $("puzzleStory").textContent=p.story;
+ $("progress").style.width=(idx/4*100)+"%";
+ $("completedCount").textContent=`${answers.length} / 4 locks opened`;
+ $("feedback").classList.add("hidden");
+ $("hintBtn").disabled=false;
+ $("submitPuzzle").disabled=false;
+ puzzleHintUsed=false;
+ $("familySelect").innerHTML=p.families.map(([v,l])=>`<option value="${v}">${l}</option>`).join("");
+ $("familySelect").value="";
+ // Shuffle the display order, while preserving each equation's original index.
+ $("equations").innerHTML="";
+ const shuffledIndexes=p.eqs.map((_,i)=>i);
+ for(let i=shuffledIndexes.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1));
+   [shuffledIndexes[i],shuffledIndexes[j]]=[shuffledIndexes[j],shuffledIndexes[i]];
+ }
+ shuffledIndexes.forEach(i=>{
+   const e=p.eqs[i],label=document.createElement("label");
+   label.className="eq";
+   label.innerHTML=`<input type="checkbox" value="${i}"><code>${e[0]}</code>`;
+   $("equations").appendChild(label);
+ });
+ const ex=p.extra;
+ $("extraChallenge").innerHTML=`<div class="field"><label for="extraAnswer">${ex.label}</label><input id="extraAnswer" placeholder="${ex.type==="select"?"Choose above":"Your answer"}" ${ex.type==="select"?'disabled':''}></div>`;
+ drawGraph();
+ $("familySelect").onchange=drawGraph;
+ $("equations").onchange=drawGraph;
+}
+function drawGraph(){const p=puzzles[idx],c=$("graph"),ctx=c.getContext("2d"),W=c.width,H=c.height,[xmin,xmax,ymin,ymax]=p.bounds;ctx.clearRect(0,0,W,H);ctx.fillStyle="#07101f";ctx.fillRect(0,0,W,H);const X=x=>((x-xmin)/(xmax-xmin))*W,Y=y=>H-((y-ymin)/(ymax-ymin))*H;
+ctx.strokeStyle="#192b45";ctx.lineWidth=1;for(let x=Math.ceil(xmin);x<=xmax;x++){ctx.beginPath();ctx.moveTo(X(x),0);ctx.lineTo(X(x),H);ctx.stroke()}for(let y=Math.ceil(ymin);y<=ymax;y++){ctx.beginPath();ctx.moveTo(0,Y(y));ctx.lineTo(W,Y(y));ctx.stroke()}
+ctx.strokeStyle="#6983a7";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(0),0);ctx.lineTo(X(0),H);ctx.moveTo(0,Y(0));ctx.lineTo(W,Y(0));ctx.stroke();
+ctx.fillStyle="#9db3d3";ctx.font="13px system-ui";ctx.fillText("x",W-18,Y(0)-8);ctx.fillText("y",X(0)+8,18);
+const checks=[...$("equations").querySelectorAll('input:checked')].map(x=>+x.value);ctx.strokeStyle="#62e8ff";ctx.lineWidth=3;
+checks.forEach(i=>{const e=p.eqs[i];ctx.beginPath();if(e[1]==="circle"){for(let a=0;a<=Math.PI*2+.02;a+=.02){let x,y;if(idx===1){const r=[3,2,.5,4,Math.sqrt(2)][i]||3;x=r*Math.cos(a);y=r*Math.sin(a)}else if(idx===2){const cs=[[0,1.5],[0,-1.5],[1.5,0],[-1.5,0],[0,0]];const [cx,cy]=cs[i]||[0,0],r=i===4?.5:1.5;x=cx+r*Math.cos(a);y=cy+r*Math.sin(a)}else{x=3*Math.cos(a);y=3*Math.sin(a)}if(a===0)ctx.moveTo(X(x),Y(y));else ctx.lineTo(X(x),Y(y))}}else if(e[1]==="vertical"){const x=typeof e[2]==="number"?e[2]:0;let lo=e[3],hi=e[4];for(let j=0;j<=100;j++){const y=lo+(hi-lo)*j/100;if(j===0)ctx.moveTo(X(x),Y(y));else ctx.lineTo(X(x),Y(y))}}else{const fn=e[2],lo=e[3],hi=e[4];for(let j=0;j<=100;j++){const x=lo+(hi-lo)*j/100,y=fn(x);if(j===0)ctx.moveTo(X(x),Y(y));else ctx.lineTo(X(x),Y(y))}}ctx.stroke()});
+}
+$("hintBtn").onclick=()=>{hints++;puzzleHintUsed=true;const f=$("feedback");f.textContent=puzzles[idx].hint;f.classList.remove("hidden","error");f.classList.add("notice");$("hintBtn").disabled=true};
+$("submitPuzzle").onclick=()=>{const p=puzzles[idx],selected=[...$("equations").querySelectorAll("input:checked")].map(x=>+x.value).sort((a,b)=>a-b),correct=p.eqs.map((e,i)=>e[6]?i:null).filter(x=>x!==null),family=$("familySelect").value,extra=$("extraAnswer").value.trim();let extraOK=p.extra.type==="select"?family===p.extra.answer:norm(extra)===norm(p.extra.answer);let ok=family===p.family&&extraOK&&selected.length===correct.length&&selected.every((v,i)=>v===correct[i]);const f=$("feedback");f.classList.remove("hidden","success","error");if(!ok){f.classList.add("error");f.textContent="The reconstruction does not match the archive yet. Recheck the equation family, missing value, selected equations and restrictions, then try again.";return}
+f.classList.add("success");f.textContent="Reconstruction accepted. Inscription unlocked: “"+p.inscription+"”";answers.push({puzzle_id:"R2_Q"+(idx+1),title:p.title,equation_family:family,selected_equation_labels:selected.map(i=>p.eqs[i][0]),extra_answer:extra||family,hint_used:puzzleHintUsed,completed:true});$("submitPuzzle").disabled=true;$("hintBtn").disabled=true;setTimeout(()=>{idx++;if(idx<puzzles.length)renderPuzzle();else finishGame()},1000)};
+function finishGame(){
+ clearInterval(tick);elapsed=seconds();done=true;
+ // Suggested scoring: 100 for full reconstruction, +10 family identification,
+ // +10 for using no hints, and -5 for each hint. No speed bonus is applied.
+ const familyBonus=answers.length===4&&answers.every((a,i)=>a.equation_family===puzzles[i].family)?10:0;
+ const noHintBonus=hints===0?10:0;
+
+ finalScore=Math.max(0,(answers.length===4?100:0)+familyBonus+noHintBonus-(hints*5));
+ $("progress").style.width="100%";
+ $("finalMessage").textContent=puzzles.map(p=>p.inscription).join(" ");
+ $("finishTeam").textContent=team.team_id+" · "+team.team_name;
+ $("finishTime").textContent=fmt(elapsed)+" ("+elapsed+" seconds)";
+ $("finishScore").textContent=finalScore+" points";
+ $("saveStatus").textContent="Awaiting final submission";
+ show("finish");
+}
+async function saveSubmission(){
+  if(submitted) return;
+  const button = $("finalSubmit");
+  button.disabled = true;
+  $("finishMsg").classList.add("hidden");
+
+  if (!isConfigured) {
+    $("finishMsg").textContent = "The website is not connected yet. The organiser must add the Supabase project reference and publishable/anon key in the HTML.";
+    $("finishMsg").classList.remove("hidden");
+    $("finishMsg").classList.add("error");
+    button.disabled = false;
+    return;
+  }
+
+  const row = {
+    team_id: team.team_id,
+    team_name: team.team_name,
+    round_id: ROUND_ID,
+    responses: { puzzles: answers, hints_used: hints, all_completed: answers.length === 4, score: finalScore },
+    puzzle_1_result: answers[0]?.completed ? "Correct" : "Incorrect",
+    puzzle_2_result: answers[1]?.completed ? "Correct" : "Incorrect",
+    puzzle_3_result: answers[2]?.completed ? "Correct" : "Incorrect",
+    puzzle_4_result: answers[3]?.completed ? "Correct" : "Incorrect",
+    hints_used: hints,
+    completion_time: elapsed,
+    score: finalScore
+  };
+
+  try {
+    const response = await fetch(SUBMIT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_PUBLISHABLE_KEY
+      },
+      body: JSON.stringify(row)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      if (response.status === 409) {
+        throw new Error("This Team ID has already submitted Round 2. Please contact the organiser if this is a mistake.");
+      }
+      throw new Error(result.error || `Submission failed (HTTP ${response.status}). Check your connection and try again.`);
+    }
+    submitted = true;
+    $("saveStatus").textContent = "Submission received";
+    $("finishMsg").textContent = "Your answers have been submitted. Keep this confirmation screen until the organiser confirms.";
+    $("finishMsg").classList.remove("hidden", "error");
+    $("finishMsg").classList.add("success");
+    button.textContent = "Submitted successfully";
+  } catch (error) {
+    $("finishMsg").textContent = error.message || "Submission failed. Check your internet connection and try again.";
+    $("finishMsg").classList.remove("hidden", "success");
+    $("finishMsg").classList.add("error");
+    button.disabled = false;
+  }
+}
+$("finalSubmit").onclick = saveSubmission;
+</script>
+</body></html>
